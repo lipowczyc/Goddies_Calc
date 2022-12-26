@@ -173,10 +173,10 @@ class GoodiesData:
         if user_input["nickname"] == "":
             messagebox.showwarning(title=None, message="You left empty field 'nickname'")
             return False
-        if(user_input["future_points"] != "" and type(user_input["future_points"]) != int):
+        if(user_input["future_points"] != "" and type(int(user_input["future_points"])) != int):
             messagebox.showwarning(title=None, message=f"{user_input['future_points']} is not a number")
             return False
-        if(user_input["current_points"] != "" and type(user_input["current_points"]) != int):
+        if(user_input["current_points"] != "" and type(int(user_input["current_points"])) != int):
             messagebox.showwarning(title=None, message=f"{user_input['current_points']} is not a number")
             return False
 
