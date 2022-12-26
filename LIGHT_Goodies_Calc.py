@@ -57,18 +57,20 @@ class GoodiesData:
 
         current_values = self.get_user_rowdata(uni_nickname)
 
-
         if parametry["future_points"] == "":
             if current_values["futureRuneweekScore"] == "":
-                f_points = 999
+                f_points = 0
             else:
                 f_points = int(current_values["futureRuneweekScore"])
             print(current_values)
         else:
-            f_points = 500 #int(parametry["future_points"])
+            f_points = int(parametry["future_points"])
 
         if parametry["current_points"] == "":
-            c_points = int(0 if current_values["currentRuneweekScore"] == '' else current_values["currentRuneweekScore"])
+            if current_values["currentRuneweekScore"] == "":
+                c_points = 0
+            else:
+                c_points = int(current_values["currentRuneweekScore"])
         else:
             c_points = int(parametry["current_points"])
 
