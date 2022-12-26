@@ -38,10 +38,11 @@ class GoodiesData:
         light_client = gspread.authorize(lightCreds)
         self.light_sheet = light_client.open("Goodies_Calc").sheet1
         self.current_data = self.light_sheet.get_all_records()
+        self.get_nick_list(self.current_data)
 
     def start(self, parametry):
         self.get_data(parametry)
-        self.get_nick_list(self.current_data)
+        # self.get_nick_list(self.current_data)
         self.send_data()
 
 
@@ -49,61 +50,62 @@ class GoodiesData:
         nickname = parametry["nickname"]
         uni_nickname = nickname.lower()
 
-        if len(uni_nickname) == 0:
-            messagebox.showwarning(title=None, message="You left empty field 'nickname'")
-            return False
+
+        today = dt.datetime.now()
+        obrobione_today = today.strftime("%d/%m/%Y")
+        # obrobiony_time = today.strftime("%X")
+
+        current_values = self.get_user_rowdata(uni_nickname)
+
+
+        if parametry["future_points"] == "":
+            if current_values["futureRuneweekScore"] == "":
+                f_points = 999
+            else:
+                f_points = int(current_values["futureRuneweekScore"])
+            print(current_values)
         else:
-            today = dt.datetime.now()
-            obrobione_today = today.strftime("%d/%m/%Y")
-            # obrobiony_time = today.strftime("%X")
+            f_points = 500 #int(parametry["future_points"])
 
-            current_values = self.get_user_rowdata(uni_nickname)
+        if parametry["current_points"] == "":
+            c_points = int(0 if current_values["currentRuneweekScore"] == '' else current_values["currentRuneweekScore"])
+        else:
+            c_points = int(parametry["current_points"])
 
+        if parametry["maps"] == "":
+            maps = int(current_values["maps"])
+        else:
+            maps = parametry["maps"]
 
-            if parametry["future_points"] == "":
-                f_points = int(0 if current_values["futureRuneweekScore"] == '' else current_values["futureRuneweekScore"])
-            else:
-                f_points = int(parametry["future_points"])
+        if parametry["blueprints"] == "":
+            blueprints = current_values["blueprints"]
+        else:
+            blueprints = parametry["blueprints"]
 
-            if parametry["current_points"] == "":
-                c_points = int(0 if current_values["currentRuneweekScore"] == '' else current_values["currentRuneweekScore"])
-            else:
-                c_points = int(parametry["current_points"])
+        if parametry["horns"] == "":
+            horns = current_values["horns"]
+        else:
+            horns = parametry["horns"]
 
-            if parametry["maps"] == "":
-                maps = int(current_values["maps"])
-            else:
-                maps = parametry["maps"]
+        if parametry["peaches"] == "":
+            peaches = current_values["peaches"]
+        else:
+            peaches = parametry["peaches"]
 
-            if parametry["blueprints"] == "":
-                blueprints = current_values["blueprints"]
-            else:
-                blueprints = parametry["blueprints"]
-
-            if parametry["horns"] == "":
-                horns = current_values["horns"]
-            else:
-                horns = parametry["horns"]
-
-            if parametry["peaches"] == "":
-                peaches = current_values["peaches"]
-            else:
-                peaches = parametry["peaches"]
-
-            self.data_to_send = {
-                    "nickname": nickname,
-                    "dateOfUpdate": obrobione_today,
-                    "futureRuneweekScore": f_points,
-                    "currentRuneweekScore": c_points,
-                    "left points": None,
-                    "maps": maps,
-                    "mp": None,
-                    "blueprints": blueprints,
-                    "bp": None,
-                    "horns": horns,
-                    "hp": None,
-                    "peaches": peaches,
-                }
+        self.data_to_send = {
+                "nickname": nickname,
+                "dateOfUpdate": obrobione_today,
+                "futureRuneweekScore": f_points,
+                "currentRuneweekScore": c_points,
+                "left points": None,
+                "maps": maps,
+                "mp": None,
+                "blueprints": blueprints,
+                "bp": None,
+                "horns": horns,
+                "hp": None,
+                "peaches": peaches,
+            }
 
     def get_user_rowdata(self, user):
         goodies_data = self.current_data
@@ -166,6 +168,19 @@ class GoodiesData:
 
         messagebox.showinfo(title=None, message="Thanks")
         exit()
+    def checkWprowadzoneDane(self, user_input):
+        listerr = []
+        if user_input["nickname"] == "":
+            messagebox.showwarning(title=None, message="You left empty field 'nickname'")
+            return False
+        if(user_input["future_points"] != "" and type(user_input["future_points"]) != int):
+            messagebox.showwarning(title=None, message=f"{user_input['future_points']} is not a number")
+            return False
+        if(user_input["current_points"] != "" and type(user_input["current_points"]) != int):
+            messagebox.showwarning(title=None, message=f"{user_input['current_points']} is not a number")
+            return False
+
+        return True
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -239,7 +254,8 @@ def zaje():
         "horns": spinbox_horn.get(),
         "peaches": spinbox_peach.get(),
     }
-    gd.start(user_params)
+    if gd.checkWprowadzoneDane(user_params):
+        gd.start(user_params)
 button_search = Button(text="Update", fg=FONT_COLOR, font=(FONT_NAME, 15, "bold"), width=17, bg=LIGHT_GREY, command=zaje)
 button_search.grid(column=1, row=10)
 button_search.config(padx=5, pady=5)
