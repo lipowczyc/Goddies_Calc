@@ -95,7 +95,7 @@ class GoodiesData:
             peaches = parametry["peaches"]
 
         self.data_to_send = {
-                "nickname": nickname,
+                "nickname": uni_nickname,
                 "dateOfUpdate": obrobione_today,
                 "futureRuneweekScore": f_points,
                 "currentRuneweekScore": c_points,
