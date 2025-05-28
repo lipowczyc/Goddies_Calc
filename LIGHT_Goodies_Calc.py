@@ -21,7 +21,7 @@ Technologies Used:
 Tkinter for the GUI,
 gspread + oauth2client for Google Sheets interaction,
 datetime for time-stamping updates,
-messagebox for user feedback and error handling,
+messagebox for user feedback and error handling
 
 Author: Sylwia Postnikoff
 """
