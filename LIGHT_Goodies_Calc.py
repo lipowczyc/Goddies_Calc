@@ -42,15 +42,15 @@ class GoodiesData:
     data_to_send = []
     credentialsy = {
         "type": "service_account",
-        "project_id": "light-goodies-calc-369121",
-        "private_key_id": "0959313568809bb9669041ffc2825218d56bc881",
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDkEJtNp/fGr7D2\nJqfDejgrWK96RLEZzUUGK+RhI1TnqRviUxK6e9IJzYlPbcUt+czlB3Ejd8mxPTtp\nJO3/Y29Dq0K0O8/mV39Pio8rfW6FKKWU54jW/s67qUTq39tSngcc3Mgw90QTrSKV\n4OTggPUbx9XCtvhoVH6Tpo0YthdFFi5tXHqP0pW+1WM0uqQWMFR37l22Mdk/rAWU\nLBqIY3NDKM9h/L6tT6KCtZrrFZyEcI25TOcl+P9M58DO8IK5fwyfDRq4J2FSW1Hm\nkKdIroTVAZlgiaGXP4xU/Ov2jVbFi05pmPf/tJGcLMud9C1DiGDgwiF6t9aisGSR\nBtmgHtetAgMBAAECggEABk8MflqKCNJ9j2MxWwxx9yAy0BIlx53W7d1GXSBVLgiO\nopudFh1S7/3iCv++QRyhL0K3imO7AUg9PclAovYITJoCGqpyGiAyGUXiQP5tKyM2\nzvnHd/imryh3C68M/TbG4csC598Nk74p1nVZD3n+jcatrv9Q7tEYV60Q4SEEX5JS\nOYR/eFfESi6C9lC+o8i+zPBj49hioRb/6hmCJxwXwpTwCovpzUD2RR1v427BWhZk\nYdHWfKyP6+FuGMxLhbtr0FCWIpW0XSXKf3qZsG5AWMMEmlyMAD64vCYf4+n49ZCX\ngzL1sdS0nezh8llJs/TnYztIfAP2/N+tYcsR2qttAQKBgQD9uMD3UP9GEH6JPa3j\nSw3JIrUCHJBVFOMLpwR3rWHc93pDvHM5BcHM8tR8qAev8fY29cFpmZPhXJ3hAZUG\ny17WyWhk6RNqQKjs6PiR3OlG/m6Rq8qaxrIPLSz/vDtmrINJOlreuRdAKR4nZeLu\nPw9+Hl+6Bu4qs74xNdQ2xctsLQKBgQDmHN+4DWHt0MQguL8071Cqal1R6HjZ8RUd\nwGNRfNOgnybIYiTcUeMNHgx/XMM54PTQmS3TIl4OnHy2jPsTtpTp/+S6VOlTrnmN\nCsTsJA7mZiI1Rwhu2Go3p/Ac99fzPdLQwSUXXu5PQZ6b98iZrqhlkkrVeCiJQsX+\ncu2MpibJgQKBgHFj5VFiMIO2kWZyW0kuXL3cNfr4mwR7LjEh9lwp74eaTlkBWplM\nWl1m1NHVIoJeZ4QOdt7j1PQtuR064MhFkV/6aR5YD+Y3eYdPYu+FQ/gHc5DErupX\nDHK95NNx4zYyuQW7/6p0G9D/z0saPL3vDtR1bKCtwjjxVXmWrf3AjfYNAoGBAIlQ\nyZ/HPJzxa1grZs5r0LMg7bcnBpbnajZqy9mgp5i94CLLjjt7EgaN299Ut5seRnkE\nL3hCleYaM8Grt1g4J/zLGu6mJOYuw5IKzyArFEkgwWERllKvChNUP9DJhTA9wEOa\nPkwH9iWNftyLrEUpGIwkFEv2fBoMoqIIawD3VUYBAoGAJ3nLGuneYx53/UyzMkBg\nQGOGey6xsyC0/zr7s26PtMO1/dmix9cT7JMNBT/CciL6SR6FFx7J5grdgt8mB43a\n7BLklwMLo9mG5T73hW2MaJDF/9mryvM1QWTud20m+anhr2OKSJorNFFvlUDiy8yJ\nLumo07p2Sfs/myJ0Xfw7eAI=\n-----END PRIVATE KEY-----\n",
-        "client_email": "legendarymight@light-goodies-calc-369121.iam.gserviceaccount.com",
-        "client_id": "106693453803529435454",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://oauth2.googleapis.com/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/legendarymight%40light-goodies-calc-369121.iam.gserviceaccount.com"
+        "project_id": "your ID",
+        "private_key_id": "your key",
+        "private_key": "-----BEGIN PRIVATE KEY-----\n",
+        "client_email": "email@email.com",
+        "client_id": "000000000000",
+        "auth_uri": "https://",
+        "token_uri": "https://",
+        "auth_provider_x509_cert_url": "https://",
+        "client_x509_cert_url": "https://"
     }
 
     def __init__(self):
